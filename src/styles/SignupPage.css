@@ -44,14 +44,16 @@ body {
   font-size: 15px;
   box-sizing: border-box;
   background: #fff;
+  color: #111827; /* Added for text visibility */
   transition: border-color 0.3s ease;
 }
 
 .signup-box input:focus {
   border-color: #2563eb;
   outline: none;
+  background-color: #fff; /* Ensure white background */
+  color: #111827; /* Ensure text is visible */
 }
-
 
 .password-field {
   position: relative;
@@ -65,12 +67,15 @@ body {
   border: 1px solid #d1d5db;
   font-size: 15px;
   background: #fff;
+  color: #111827; /* Added for text visibility */
   box-sizing: border-box;
 }
 
 .password-field input:focus {
   border-color: #2563eb;
   outline: none;
+  background-color: #fff;
+  color: #111827;
 }
 
 .password-field span {
@@ -118,7 +123,6 @@ body {
   color: #1d4ed8;
 }
 
-
 @media (max-width: 600px) {
   .signup-box {
     padding: 32px 20px;
@@ -138,4 +142,19 @@ body {
   .password-field span {
     font-size: 16px;
   }
+}
+
+/* Fix for mobile dark mode */
+@media (prefers-color-scheme: dark) {
+  .signup-box input,
+  .password-field input {
+    background-color: #fff;
+    color: #111827;
+  }
+}
+
+/* Prevent autofill issues */
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+  -webkit-text-fill-color: #111827;
 }

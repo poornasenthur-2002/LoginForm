@@ -35,7 +35,6 @@ body {
   margin-bottom: 24px;
 }
 
-
 .login-box input {
   width: 100%;
   padding: 12px;
@@ -45,23 +44,32 @@ body {
   font-size: 15px;
   box-sizing: border-box;
   background: #fff;
+  color: #111827; /* <-- Fix: Ensure text is visible */
   transition: border-color 0.3s ease;
 }
 
 .login-box input:focus {
   border-color: #2563eb;
   outline: none;
+  background-color: #fff;
+  color: #111827; /* <-- Fix: Keep text visible on focus */
 }
-
 
 .password-wrapper {
   position: relative;
-  margin-bottom: 0; 
+  margin-bottom: 0;
 }
 
 .password-wrapper input {
   width: 100%;
-  padding-right: 40px; 
+  padding-right: 40px;
+  background-color: #fff;
+  color: #111827; /* <-- Fix: Ensure password text is visible */
+}
+
+.password-wrapper input:focus {
+  background-color: #fff;
+  color: #111827;
 }
 
 .toggle-password {
@@ -73,7 +81,6 @@ body {
   font-size: 18px;
   color: #6b7280;
 }
-
 
 .forgot-password {
   text-align: right;
@@ -93,7 +100,6 @@ body {
   color: #1d4ed8;
 }
 
-
 .login-box button {
   width: 100%;
   padding: 12px;
@@ -111,7 +117,6 @@ body {
 .login-box button:hover {
   background-color: #1d4ed8;
 }
-
 
 .google-login {
   display: flex;
@@ -138,7 +143,6 @@ body {
   font-size: 18px;
 }
 
-
 .link {
   margin-top: 20px;
   font-size: 14px;
@@ -160,7 +164,6 @@ body {
   font-weight: 600;
 }
 
-
 @media (max-width: 500px) {
   .login-box {
     padding: 32px 20px;
@@ -180,4 +183,19 @@ body {
   .toggle-password {
     font-size: 16px;
   }
+}
+
+/* 🔒 Dark mode override to force light inputs and visible text */
+@media (prefers-color-scheme: dark) {
+  .login-box input,
+  .password-wrapper input {
+    background-color: #fff;
+    color: #111827;
+  }
+}
+
+/* 🧠 Autofill bug fix */
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+  -webkit-text-fill-color: #111827;
 }

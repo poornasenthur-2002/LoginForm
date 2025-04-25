@@ -23,7 +23,7 @@ const LoginPage = () => {
     const validPassword = storedPassword !== null ? storedPassword : 'poorna123';
 
     if (email === validEmail && password === validPassword) {
-      window.location.href = 'https://poornasenthur-2002.github.io/Webproject/index.html';
+      window.location.href = 'https://poornasenthurportfolio.netlify.app/';
     } else {
       alert('Incorrect email or password!');
     }
